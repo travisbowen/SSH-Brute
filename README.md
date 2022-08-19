@@ -37,17 +37,6 @@ Enter filename: ex.passwordList.txt
 
 - Python3
 - Pwn library
-
-```bash
-pip install pwntools
-```
-
-- Pwn library
-
-```bash
-pip install paramiko
-```
-
 - Run script in the user directory that is being brute forced
 - Have the password file in the user directory that is being brute forced
 - Have fun!
@@ -55,7 +44,6 @@ pip install paramiko
 ## Errors ❌
 
 - Authentication Failed - Means password does not match or port 22 is not open
-- Make sure pwn and paramiko libraries are installed
 
 ## Connect
 
