@@ -36,7 +36,6 @@ Enter filename: ex.passwordList.txt
 ## Requirements ✔️
 
 - Python3
-- Pwn library
 - Run script in the user directory that is being brute forced
 - Have the password file in the user directory that is being brute forced
 - Have fun!
